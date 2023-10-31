@@ -28,15 +28,34 @@ public class Main {
         System.out.print("Deseja adicionar quantas musicas novas?: ");
         int quantidadeMusicas = valorTeclado.nextInt();
         valorTeclado.nextLine();
+        if(quantidadeMusicas > 0) {
+            for (int i = 0; i < quantidadeMusicas; i++) {
+                System.out.print("Nome da musica: ");
+                String nomeMusica = valorTeclado.nextLine();
+                System.out.print("Duracao: ");
+                int duracaoMusica = valorTeclado.nextInt();
+                valorTeclado.nextLine();
 
-        for (int i = 0 ; i < quantidadeMusicas; i++){
-            Musica[] musicas = new Musica[quantidadeMusicas];
-            System.out.print("Nome da musica: ");
-            String nomeMusica = valorTeclado.nextLine();
-            System.out.print("Duracao: ");
-            int duracaoMusica = valorTeclado.nextInt();
+                banda.musicas[i] = new Musica(nomeMusica, duracaoMusica);
+            }
+        }else {
+            banda.musicas = null;
+        }
 
-            musicas[i] = new Musica(nomeMusica, duracaoMusica);
+        System.out.print("A banda tem quantos membro?: ");
+        int membros = valorTeclado.nextInt();
+        valorTeclado.nextLine();
+        if(membros > 0) {
+            for (int i = 0; i < membros; i++) {
+                System.out.print("Nome do membro: ");
+                String nomeMusico = valorTeclado.nextLine();
+                System.out.print("Função: ");
+                String funcao = valorTeclado.nextLine();
+
+                banda.musico[i] = new Musico(nomeMusico, funcao);
+            }
+        }else {
+            banda.musico = null;
         }
 
         banda.mostraInfo();
